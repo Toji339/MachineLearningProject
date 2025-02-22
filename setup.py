@@ -1,13 +1,16 @@
-from setuptools import find_packages,setup
-"""
-#with the help of setup.py, we will be build the entire machine learning application 
-as a package and we can deploy in py , so everyone can download and use it.
-"""
+from setuptools import find_packages, setup
+
+def get_requirements(file_path):
+    with open(file_path, "r") as file_obj:
+        requirements = file_obj.read().splitlines()
+        requirements = [req for req in requirements if req and not req.startswith("-e")]  
+        return requirements
+
 setup(
-    name = "MachineLearningProject",
-    version='0.0.1',
-    author = "Venkata Dharaneswara Reddy",
+    name="MachineLearningProject",
+    version="0.0.1",
+    author="Venkata Dharaneswara Reddy",
     author_email="dharaneswar339@gmail.com",
     packages=find_packages(),
-    install_requires = ['numpy','pandas','seaborn']
+    install_requires=get_requirements("requirements.txt"),
 )
