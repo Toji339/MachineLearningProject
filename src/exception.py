@@ -1,5 +1,5 @@
 import sys
-import logging 
+from src.logger import logging
 """
 the sys module in py provides access to system - specific parameters and
 functions, allowing interaction with the python interpreter and the operating
